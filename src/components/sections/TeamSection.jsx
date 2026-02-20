@@ -1,5 +1,8 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import TeamCard from "./TeamCard";
+import teamMember from "../../assets/images/member.webp";
+import teamMember2 from "../../assets/images/member2.webp";
+
 
 /**
  * TeamSection
@@ -15,24 +18,28 @@ export default function TeamSection() {
         name: "Beckett Hayden",
         role: "Deputy Manager",
         social: { youtube: "#", twitter: "#", instagram: "#" },
+        image: teamMember,
       },
       {
         slug: "julian-wyat",
         name: "Julian Wyat",
         role: "Finance Manager",
         social: { youtube: "#", twitter: "#", instagram: "#" },
+        image: teamMember2,
       },
       {
         slug: "archer-graham",
         name: "Archer Graham",
         role: "Founder",
         social: { youtube: "#", twitter: "#", instagram: "#" },
+        image: teamMember,
       },
       {
         slug: "amelia-clover",
         name: "Amelia Clover",
         role: "Co-Founder",
         social: { youtube: "#", twitter: "#", instagram: "#" },
+        image: teamMember2,
       },
     ],
     [],
@@ -68,7 +75,7 @@ export default function TeamSection() {
   }, [isPaused]);
 
   return (
-    <section className="bg-white py-16 md:py-24">
+    <section className="bg-white py-10">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Heading */}
         <div className="relative text-center">

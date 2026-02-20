@@ -16,9 +16,12 @@ export default function TeamCard({ member }) {
       <div className="rounded-3xl bg-white shadow-sm">
         {/* Clickable image area */}
         <Link to={`/team/${member.slug}`} className="block">
-          <div className="relative overflow-hidden rounded-2xl bg-gray-200">
+          <div className="relative overflow-hidden rounded-t-2xl">
             {/* Placeholder image */}
-            <div className="h-[260px] w-full transition-transform duration-300 group-hover:-translate-y-2" />
+            <img
+              src={member.image}
+              className="h-[260px] w-full object-cover transition-transform duration-300 group-hover:-translate-y-2"
+            />
 
             {/* + button */}
             <div
