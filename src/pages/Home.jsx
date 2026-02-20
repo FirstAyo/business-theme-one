@@ -4,6 +4,9 @@ import CtaBanner from "../components/sections/CtaBanner";
 import HeroSlider from "../components/sections/HeroSlider";
 import ProjectsSection from "../components/sections/ProjectsSection";
 import ServicesSection from "../components/sections/ServicesSection";
+import StatsStrip from "../components/sections/StatsStrip";
+import TeamSection from "../components/sections/TeamSection";
+import TrustedClients from "../components/sections/TrustedClients";
 
 export default function Home() {
   return (
@@ -13,7 +16,10 @@ export default function Home() {
       <ServicesSection />
       <CtaBanner />
       <BusinessGlobalSection />
+      <StatsStrip />
       <ProjectsSection />
+      <TrustedClients />
+      <TeamSection />
       {/* next sections go here */}
     </div>
   );
