@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import BlogCard from "./BlogCard";
+import blogImg from "../../assets/images/hero3.png";
 
 /**
  * RecentBlogSection
@@ -15,18 +16,21 @@ export default function RecentBlogSection() {
         category: "Business Solution",
         author: "David Dolean",
         title: "The quick settle tips of the new ages exist",
+        image: blogImg,
       },
       {
         slug: "building-a-brand",
         category: "Business Solution",
         author: "David Dolean",
         title: "Building a Brand That from Market Leaders",
+        image: blogImg,
       },
       {
         slug: "transforming-approach",
         category: "Business Solution",
         author: "David Dolean",
         title: "Transforming Your Best Of Approach to Business",
+        image: blogImg,
       },
       // Extra item(s) to make the slider feel continuous (same UI, different slug)
       {
@@ -34,18 +38,21 @@ export default function RecentBlogSection() {
         category: "Business Solution",
         author: "David Dolean",
         title: "Business growth hacks for modern teams",
+        image: blogImg,
       },
       {
         slug: "strategy-for-startups",
         category: "Business Solution",
         author: "David Dolean",
         title: "Strategy fundamentals that scale startups",
+        image: blogImg,
       },
       {
         slug: "designing-better-systems",
         category: "Business Solution",
         author: "David Dolean",
         title: "Designing better systems for long-term success",
+        image: blogImg,
       },
     ],
     [],
@@ -95,12 +102,12 @@ export default function RecentBlogSection() {
   };
 
   return (
-    <section className="bg-white py-16 md:py-24">
+    <section className="bg-white py-10">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Heading */}
         <div className="relative text-center">
           {/* Watermark */}
-          <div className="pointer-events-none absolute left-1/2 top-[-28px] hidden -translate-x-1/2 select-none text-[120px] font-extrabold tracking-tight text-black/[0.03] lg:block">
+          <div className="pointer-events-none absolute left-1/2 -top-20 hidden -translate-x-1/2 select-none text-[120px] font-extrabold tracking-wider text-black/7 lg:block">
             Blog
           </div>
 

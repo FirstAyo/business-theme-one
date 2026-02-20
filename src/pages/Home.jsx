@@ -1,3 +1,4 @@
+import FooterArea from "../components/footer/FooterArea";
 import AboutSection from "../components/sections/AboutSection";
 import BusinessGlobalSection from "../components/sections/BusinessGlobalSection";
 import ClientReviews from "../components/sections/ClientReviews";
@@ -26,6 +27,7 @@ export default function Home() {
       <ClientReviews />
       <RequestQuote />
       <RecentBlogSection />
+      <FooterArea />
       {/* next sections go here */}
     </div>
   );

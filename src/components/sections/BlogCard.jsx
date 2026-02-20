@@ -27,7 +27,7 @@ export default function BlogCard({ post }) {
         {/* Image */}
         <div className="mt-8 overflow-hidden rounded-2xl bg-gray-200">
           {/* Placeholder for image */}
-          <div className="h-60 w-full transition-transform duration-300 hover:scale-[1.04]" />
+          <img src={post.image} alt={post.title} className="h-60 w-full transition-transform duration-300 hover:scale-[1.04] object-cover" />
         </div>
       </Link>
     </div>
