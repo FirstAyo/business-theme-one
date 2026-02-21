@@ -53,7 +53,7 @@ export default function ServiceDropdown({ open, onClose }) {
 
   return (
     // FIX: fixed -> not constrained by the nav item's width
-    <div className="fixed left-1/2 top-34 z-[9999] w-[min(1120px,calc(100vw-2rem))] -translate-x-1/2">
+    <div className="fixed left-1/2 top-34 z-9999 w-[min(1120px,calc(100vw-2rem))] -translate-x-1/2">
       <div className="overflow-hidden rounded-b-xl bg-white shadow-[0_22px_70px_rgba(0,0,0,0.18)]">
         <div className="grid lg:grid-cols-[1.55fr_0.85fr]">
           {/* LEFT */}
