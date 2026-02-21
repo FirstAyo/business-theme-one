@@ -1,27 +1,23 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { NavLink } from "react-router-dom";
 import SidePanel from "./SidePanel";
 import ServiceDropdown from "./ServiceDropdown";
 import { Mail, Clock, Search, Menu, X, ChevronDown } from "lucide-react";
 
-/**
- * Navbar (shared across all pages)
- * - Desktop: Top utility bar + main nav + hover dropdown (Services)
- * - Mobile: Compact header + slide-in menu with accordions
- */
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [openGroup, setOpenGroup] = useState(null); // mobile accordion
+  const [openGroup, setOpenGroup] = useState(null);
   const [sidePanelOpen, setSidePanelOpen] = useState(false);
 
-  // Services dropdown state (desktop)
+  // Services dropdown
   const [servicesOpen, setServicesOpen] = useState(false);
+  const closeTimerRef = useRef(null);
 
   const navItems = useMemo(
     () => [
       { label: "Home", to: "/", hasDropdown: true },
       { label: "Pages", to: "/pages", hasDropdown: true },
-      { label: "Service", to: "/services", hasDropdown: true }, // dropdown here
+      { label: "Service", to: "/services", hasDropdown: true },
       { label: "Project", to: "/projects", hasDropdown: true },
       { label: "Blog", to: "/blog", hasDropdown: true },
       { label: "Contact", to: "/contact", hasDropdown: true },
@@ -29,7 +25,7 @@ export default function Navbar() {
     [],
   );
 
-  // Close menus on ESC
+  // ESC closes
   useEffect(() => {
     const onKeyDown = (e) => {
       if (e.key === "Escape") {
@@ -41,13 +37,26 @@ export default function Navbar() {
     return () => window.removeEventListener("keydown", onKeyDown);
   }, []);
 
-  // Lock body scroll when mobile menu is open
+  // body scroll lock
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? "hidden" : "";
     return () => {
       document.body.style.overflow = "";
     };
   }, [mobileOpen]);
+
+  // Helpers for premium hover (delay close + cancel close)
+  const openServices = () => {
+    if (closeTimerRef.current) window.clearTimeout(closeTimerRef.current);
+    setServicesOpen(true);
+  };
+
+  const scheduleCloseServices = () => {
+    if (closeTimerRef.current) window.clearTimeout(closeTimerRef.current);
+    closeTimerRef.current = window.setTimeout(() => {
+      setServicesOpen(false);
+    }, 140); // small delay = premium + prevents flicker
+  };
 
   const toggleGroup = (key) => {
     setOpenGroup((prev) => (prev === key ? null : key));
@@ -58,7 +67,6 @@ export default function Navbar() {
       {/* Top utility bar (desktop) */}
       <div className="hidden w-full bg-[#1F2A30] text-white md:block">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3">
-          {/* Left info */}
           <div className="flex items-center gap-8 text-sm">
             <div className="flex items-center gap-2">
               <span className="grid h-6 w-6 place-items-center rounded bg-white/10">
@@ -75,7 +83,6 @@ export default function Navbar() {
             </div>
           </div>
 
-          {/* Right links + socials */}
           <div className="flex items-center gap-6 text-sm">
             <nav className="flex items-center gap-6">
               <a className="opacity-90 hover:opacity-100" href="#company-news">
@@ -91,7 +98,6 @@ export default function Navbar() {
 
             <span className="h-4 w-px bg-white/20" />
 
-            {/* Socials placeholders */}
             <div className="flex items-center gap-4">
               <SocialDot label="f" />
               <SocialDot label="t" />
@@ -103,8 +109,7 @@ export default function Navbar() {
       </div>
 
       {/* Main navbar */}
-      {/* IMPORTANT: z-50 keeps dropdown above hero sections */}
-      <div className="relative z-50 w-full bg-white">
+      <div className="w-full bg-white">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
           {/* Logo */}
           <NavLink to="/" className="flex items-center gap-3">
@@ -122,15 +127,15 @@ export default function Navbar() {
           </NavLink>
 
           {/* Desktop nav */}
-          <nav className="hidden items-center gap-8 md:flex">
+          <nav className="relative hidden items-center gap-8 md:flex">
             {navItems.map((item) => {
               if (item.label === "Service") {
                 return (
                   <div
                     key={item.label}
                     className="relative"
-                    onMouseEnter={() => setServicesOpen(true)}
-                    onMouseLeave={() => setServicesOpen(false)}
+                    onMouseEnter={openServices}
+                    onMouseLeave={scheduleCloseServices}
                   >
                     <NavLink
                       to={item.to}
@@ -145,9 +150,11 @@ export default function Navbar() {
                       <ChevronDown className="h-4 w-4 opacity-70" />
                     </NavLink>
 
-                    {/* Dropdown (positioned to viewport center, not service link width) */}
+                    {/* Dropdown stays open when hovered */}
                     <ServiceDropdown
                       open={servicesOpen}
+                      onMouseEnter={openServices}
+                      onMouseLeave={scheduleCloseServices}
                       onClose={() => setServicesOpen(false)}
                     />
                   </div>
@@ -310,7 +317,6 @@ export default function Navbar() {
   );
 }
 
-/** Small social placeholder */
 function SocialDot({ label }) {
   return (
     <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-black/10 text-xs font-semibold text-[#1F2A30]">
@@ -319,7 +325,6 @@ function SocialDot({ label }) {
   );
 }
 
-/** Mobile accordion row */
 function MobileAccordionRow({ label, isOpen, onToggle }) {
   return (
     <button

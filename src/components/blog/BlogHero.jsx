@@ -11,14 +11,6 @@ export default function BlogHero() {
       <div className="pointer-events-none absolute left-20 top-44 h-44 w-44 rounded-full border border-black/10" />
       <div className="pointer-events-none absolute right-10 top-32 h-20 w-20 rounded-full border border-black/10" />
 
-      {/* right vertical button */}
-      <button
-        type="button"
-        className="absolute right-0 top-28 hidden -rotate-90 rounded-b-lg bg-[#1F2A30] px-5 py-3 text-sm font-semibold text-white shadow-lg lg:block"
-      >
-        View RTL
-      </button>
-
       <div className="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
         <div className="text-center">
           <h1 className="text-4xl font-extrabold text-[#1F2A30] sm:text-5xl">

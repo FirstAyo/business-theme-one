@@ -2,6 +2,8 @@ import BlogHero from "../components/blog/BlogHero";
 import BlogGrid from "../components/blog/BlogGrid";
 import BlogSidebar from "../components/blog/BlogSidebar";
 import BlogPagination from "../components/blog/BlogPagination";
+import NewsletterCta from "../components/contact/NewsletterCta";
+import FooterDarkSimple from "../components/contact/FooterDarkSimple";
 // import TrustedClients from "../components/Home/TrustedClients"; // if you already have it
 
 export default function Blog() {
@@ -40,6 +42,9 @@ export default function Blog() {
           </div>
         </div>
       </section>
+
+      <NewsletterCta />
+      <FooterDarkSimple />
     </main>
   );
 }

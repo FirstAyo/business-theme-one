@@ -6,18 +6,14 @@ import {
   LineChart,
   Wrench,
 } from "lucide-react";
-
 import dropdownImg from "../../assets/images/hero3.png";
 
-/**
- * ServiceDropdown
- * - Matches screenshot style: service cards + right image + dark CTA bar
- * - Desktop hover use-case
- * - FIX: Uses fixed positioning + responsive width so it doesn't shrink to nav item width
- */
-export default function ServiceDropdown({ open, onClose }) {
-  if (!open) return null;
-
+export default function ServiceDropdown({
+  open,
+  onClose,
+  onMouseEnter,
+  onMouseLeave,
+}) {
   const items = [
     {
       to: "/services/business-solution",
@@ -52,8 +48,20 @@ export default function ServiceDropdown({ open, onClose }) {
   ];
 
   return (
-    // FIX: fixed -> not constrained by the nav item's width
-    <div className="fixed left-1/2 top-34 z-9999 w-[min(1120px,calc(100vw-2rem))] -translate-x-1/2">
+    <div
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
+      className={[
+        // Position & size (centered)
+        "fixed left-1/2 top-34 z-9999 w-[min(1120px,calc(100vw-2rem))] -translate-x-1/2",
+
+        // Animation + interaction
+        "origin-top transition-all duration-200 ease-out",
+        open
+          ? "pointer-events-auto translate-y-0 opacity-100 scale-100"
+          : "pointer-events-none -translate-y-3 opacity-0 scale-[0.98]",
+      ].join(" ")}
+    >
       <div className="overflow-hidden rounded-b-xl bg-white shadow-[0_22px_70px_rgba(0,0,0,0.18)]">
         <div className="grid lg:grid-cols-[1.55fr_0.85fr]">
           {/* LEFT */}

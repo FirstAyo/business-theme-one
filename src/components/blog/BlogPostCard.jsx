@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 export default function BlogPostCard({ post }) {
   return (
     <Link to={`/blog/${post.slug}`} className="group block">
-      <article className="overflow-hidden rounded-2xl bg-white shadow-[0_20px_60px_rgba(0,0,0,0.08)]">
+      <article className="overflow-hidden rounded-t-2xl bg-white shadow-[0_20px_60px_rgba(0,0,0,0.08)]">
         {/* Image wrapper (with inner padding like screenshot) */}
-        <div className="p-6 pb-5">
-          <div className="overflow-hidden rounded-2xl bg-black/5">
+        <div className="">
+          <div className="overflow-hidden rounded-t-2xl bg-black/5">
             <img
               src={post.image}
               alt={post.title}
@@ -16,7 +16,7 @@ export default function BlogPostCard({ post }) {
         </div>
 
         {/* Divider line */}
-        <div className="h-px w-full bg-black/10" />
+        <div className="h-1 w-full bg-amber-800" />
 
         {/* Content */}
         <div className="px-6 pb-8 pt-7">
