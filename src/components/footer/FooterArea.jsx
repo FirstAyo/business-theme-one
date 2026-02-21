@@ -10,7 +10,7 @@ import { Mail, MapPin, Phone, Send, ArrowRight } from "lucide-react";
 export default function FooterArea() {
   return (
     // IMPORTANT: overflow-visible so the floating card can sit above the footer
-    <footer className="relative isolate z-10 overflow-visible text-white mt-50 ">
+    <footer className="relative isolate z-10 overflow-visible text-white mt-90 lg:mt-60">
       {/* Floating Map + Contact card */}
       <div className="absolute left-1/2 top-0 z-30 w-full -translate-x-1/2 -translate-y-1/2">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
@@ -29,16 +29,16 @@ export default function FooterArea() {
             </div>
 
             {/* CONTACT (right) */}
-            <div className="p-10 text-[#1F2A30] lg:p-12">
+            <div className="p-5 text-[#1F2A30]">
               <h3 className="text-3xl font-extrabold">Contact Us</h3>
 
               {/* underline */}
-              <div className="mt-4 flex items-center gap-2">
+              <div className="mt-4 flex items-center gap-2 px-5">
                 <div className="h-[3px] w-10 rounded bg-black/15" />
                 <div className="h-[3px] w-3 rounded bg-black/10" />
               </div>
 
-              <div className="mt-10 space-y-8">
+              <div className="mt-5 lg:mt-10 space-x-2 space-y-8 grid grid-cols-1 ">
                 <ContactRow
                   icon={<Phone className="h-5 w-5" />}
                   title="Call Us 24/7"
@@ -61,7 +61,7 @@ export default function FooterArea() {
       </div>
 
       {/* INNER WRAPPER (clips rings + background only) */}
-      <div className="relative overflow-hidden bg-[#1F2A30] pt-70 pb-10">
+      <div className="relative overflow-hidden bg-[#1F2A30] pt-90 lg:pt-70 pb-10">
         {/* Subtle background rings (as in screenshot) */}
         <div className="pointer-events-none absolute -left-64 top-28 h-[560px] w-[560px] rounded-full border border-white/5" />
         <div className="pointer-events-none absolute -right-72 top-10 h-[680px] w-[680px] rounded-full border border-white/5" />
