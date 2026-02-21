@@ -77,7 +77,7 @@ export default function HeroSlider() {
               {s.eyebrow}
             </p>
 
-            <h1 className="mt-4 text-4xl font-extrabold leading-[1.08] md:text-6xl lg:text-7xl">
+            <h1 className="mt-4 text-4xl font-extrabold leading-[1.08] md:text-6xl">
               <span className="block">{s.titleTop}</span>
               <span className="block">{s.titleBottom}</span>
             </h1>
