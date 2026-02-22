@@ -55,7 +55,7 @@ export default function ContactHeroSection() {
                 <ContactItem
                   icon={<Mail className="h-5 w-5" />}
                   label="Work with us"
-                  value="info@Invena.com"
+                  value="info@Nexora.com"
                 />
                 <ContactItem
                   icon={<MapPin className="h-5 w-5" />}

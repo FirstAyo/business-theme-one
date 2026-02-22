@@ -30,7 +30,7 @@ export default function FooterDarkSimple() {
               </div>
 
               <div className="leading-tight">
-                <p className="text-2xl font-extrabold">Invena</p>
+                <p className="text-2xl font-extrabold">Nexora</p>
                 <p className="text-sm text-white/70">Business Solution</p>
               </div>
             </div>
@@ -106,7 +106,7 @@ export default function FooterDarkSimple() {
               <ContactLine
                 icon={<Mail className="h-4 w-4" />}
                 title="Work with us"
-                value="info@Invena.com"
+                value="info@Nexora.com"
               />
               <ContactLine
                 icon={<MapPin className="h-4 w-4" />}
@@ -126,7 +126,7 @@ export default function FooterDarkSimple() {
       {/* Bottom bar */}
       <div className="border-t border-white/10">
         <div className="mx-auto flex max-w-7xl flex-col gap-4 px-4 py-6 text-xs text-white/70 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
-          <p>Invena - Copyright 2026. All rights reserved.</p>
+          <p>Nexora - Copyright 2026. All rights reserved.</p>
 
           <div className="flex items-center gap-5">
             <Link to="/privacy" className="hover:text-white">

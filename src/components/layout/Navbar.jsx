@@ -57,7 +57,6 @@ export default function Navbar() {
     }, 140); // small delay = premium + prevents flicker
   };
 
-
   return (
     <header className="w-full">
       {/* Top utility bar (desktop) */}
@@ -68,7 +67,7 @@ export default function Navbar() {
               <span className="grid h-6 w-6 place-items-center rounded bg-white/10">
                 <Mail className="h-4 w-4 text-white/90" />
               </span>
-              <span>support@invena.com</span>
+              <span>support@Nexora.com</span>
             </div>
 
             <div className="flex items-center gap-2">
@@ -114,7 +113,7 @@ export default function Navbar() {
             </div>
             <div className="leading-tight">
               <div className="text-2xl font-extrabold text-[#1F2A30]">
-                Invena
+                Nexora
               </div>
               <div className="-mt-1 text-sm text-[#5C6B73]">
                 Business Solution
@@ -243,7 +242,7 @@ export default function Navbar() {
                 </div>
                 <div className="leading-tight">
                   <div className="text-2xl font-extrabold text-[#1F2A30]">
-                    Invena
+                    Nexora
                   </div>
                   <div className="-mt-1 text-sm text-[#5C6B73]">
                     Business Solution

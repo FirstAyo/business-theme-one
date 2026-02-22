@@ -63,7 +63,7 @@ export default function SidePanel({ open, onClose }) {
             </div>
             <div className="leading-tight">
               <div className="text-3xl font-extrabold text-[#1F2A30]">
-                Invena
+                Nexora
               </div>
               <div className="-mt-1 text-sm text-[#5C6B73]">
                 Business Solution

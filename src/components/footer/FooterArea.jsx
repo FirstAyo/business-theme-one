@@ -47,7 +47,7 @@ export default function FooterArea() {
                 <ContactRow
                   icon={<Mail className="h-5 w-5" />}
                   title="Work with us"
-                  value="info@invena.com"
+                  value="info@Nexora.com"
                 />
                 <ContactRow
                   icon={<MapPin className="h-5 w-5" />}
@@ -159,7 +159,7 @@ export default function FooterArea() {
 
             {/* Copyright */}
             <p className="mt-6 text-center text-xs text-white/70">
-              Invena - Copyright 2026. All rights reserved.
+              Nexora - Copyright 2026. All rights reserved.
             </p>
           </div>
         </div>

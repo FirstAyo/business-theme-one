@@ -6,7 +6,7 @@ export default function BlogSidebarHelpCard() {
           ↗
         </div>
         <div className="leading-tight">
-          <p className="text-lg font-extrabold">Invena</p>
+          <p className="text-lg font-extrabold">Nexora</p>
           <p className="text-xs text-white/70">Business Solution</p>
         </div>
       </div>
