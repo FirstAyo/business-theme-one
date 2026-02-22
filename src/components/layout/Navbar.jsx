@@ -6,7 +6,6 @@ import { Mail, Clock, Search, Menu, X, ChevronDown } from "lucide-react";
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [openGroup, setOpenGroup] = useState(null);
   const [sidePanelOpen, setSidePanelOpen] = useState(false);
 
   // Services dropdown
@@ -15,12 +14,12 @@ export default function Navbar() {
 
   const navItems = useMemo(
     () => [
-      { label: "Home", to: "/", hasDropdown: true },
-      { label: "Pages", to: "/pages", hasDropdown: true },
+      { label: "Home", to: "/", hasDropdown: false },
+      { label: "Pages", to: "/pages", hasDropdown: false },
       { label: "Service", to: "/services", hasDropdown: true },
-      { label: "Project", to: "/projects", hasDropdown: true },
-      { label: "Blog", to: "/blog", hasDropdown: true },
-      { label: "Contact", to: "/contact", hasDropdown: true },
+      { label: "Project", to: "/projects", hasDropdown: false },
+      { label: "Blog", to: "/blog", hasDropdown: false },
+      { label: "Contact", to: "/contact", hasDropdown: false },
     ],
     [],
   );
@@ -58,9 +57,6 @@ export default function Navbar() {
     }, 140); // small delay = premium + prevents flicker
   };
 
-  const toggleGroup = (key) => {
-    setOpenGroup((prev) => (prev === key ? null : key));
-  };
 
   return (
     <header className="w-full">
@@ -256,37 +252,18 @@ export default function Navbar() {
               </div>
 
               <div className="divide-y divide-gray-100 border-t border-gray-100">
-                <MobileAccordionRow
-                  label="Demos"
-                  isOpen={openGroup === "demos"}
-                  onToggle={() => toggleGroup("demos")}
-                />
-                <MobileAccordionRow
-                  label="Onepage"
-                  isOpen={openGroup === "onepage"}
-                  onToggle={() => toggleGroup("onepage")}
-                />
-                <MobileAccordionRow
-                  label="Pages"
-                  isOpen={openGroup === "pages"}
-                  onToggle={() => toggleGroup("pages")}
-                />
-                <MobileAccordionRow
-                  label="Services"
-                  isOpen={openGroup === "services"}
-                  onToggle={() => toggleGroup("services")}
-                />
-                <MobileAccordionRow
-                  label="Projects"
-                  isOpen={openGroup === "projects"}
-                  onToggle={() => toggleGroup("projects")}
-                />
-                <MobileAccordionRow
-                  label="Shop Pages"
-                  isOpen={openGroup === "shop"}
-                  onToggle={() => toggleGroup("shop")}
-                />
-
+                <a
+                  href="#services"
+                  className="flex items-center justify-between py-4 text-[15px] font-semibold text-[#1F2A30]"
+                >
+                  Services
+                </a>
+                <a
+                  href="/projects"
+                  className="flex items-center justify-between py-4 text-[15px] font-semibold text-[#1F2A30]"
+                >
+                  Projects
+                </a>
                 <a
                   href="/blog"
                   className="flex items-center justify-between py-4 text-[15px] font-semibold text-[#1F2A30]"
@@ -322,25 +299,5 @@ function SocialDot({ label }) {
     <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-black/10 text-xs font-semibold text-[#1F2A30]">
       {label}
     </span>
-  );
-}
-
-function MobileAccordionRow({ label, isOpen, onToggle }) {
-  return (
-    <button
-      type="button"
-      className="flex w-full items-center justify-between py-4 text-left text-[15px] font-semibold text-[#1F2A30]"
-      onClick={onToggle}
-    >
-      <span>{label}</span>
-      <span
-        className={[
-          "text-sm opacity-70 transition",
-          isOpen ? "rotate-180" : "",
-        ].join(" ")}
-      >
-        ▾
-      </span>
-    </button>
   );
 }

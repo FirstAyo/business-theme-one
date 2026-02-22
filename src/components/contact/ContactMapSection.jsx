@@ -1,4 +1,10 @@
 import { useEffect } from "react";
+import logo1 from "../../assets/clients/1.webp";
+import logo2 from "../../assets/clients/2.webp";
+import logo3 from "../../assets/clients/3.webp";
+import logo4 from "../../assets/clients/4.webp";
+import logo5 from "../../assets/clients/5.webp";
+import logo6 from "../../assets/clients/6.webp";
 
 export default function ContactMapSection() {
   return (
@@ -19,22 +25,22 @@ export default function ContactMapSection() {
       </div>
 
       {/* Trusted Clients */}
-      <div className="mt-20 bg-[#F4F6F8] py-14">
+      <div className="mt-10 py-14">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center justify-between gap-10 lg:flex-row">
             {/* Title */}
-            <p className="text-sm font-semibold tracking-widest text-[#1F2A30]">
+            <p className="text-lg font-semibold tracking-widest text-[#1F2A30]">
               OUR TRUSTED CLIENTS
             </p>
 
             {/* Logos */}
             <div className="flex flex-wrap items-center justify-center gap-10 opacity-70">
-              <ClientLogo name="Toy Jesh" />
-              <ClientLogo name="sefrov" />
-              <ClientLogo name="waleon" />
-              <ClientLogo name="calsa" />
-              <ClientLogo name="Contex" />
-              <ClientLogo name="Toy Jesh" />
+              <ClientLogo name="Toy Jesh" image={logo1} />
+              <ClientLogo name="sefrov" image={logo2} />
+              <ClientLogo name="waleon" image={logo3} />
+              <ClientLogo name="calsa" image={logo4} />
+              <ClientLogo name="Contex" image={logo5} />
+              <ClientLogo name="Toy Jesh" image={logo6} />
             </div>
           </div>
         </div>
@@ -43,6 +49,10 @@ export default function ContactMapSection() {
   );
 }
 
-function ClientLogo({ name }) {
-  return <span className="text-xl font-semibold text-black/60">{name}</span>;
+function ClientLogo({ image, name }) {
+  return (
+    <div>
+      <img src={image} alt={name} className="h-10 w-30 object-contain" />
+    </div>
+  );
 }
