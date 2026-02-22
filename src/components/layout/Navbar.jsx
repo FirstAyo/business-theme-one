@@ -3,6 +3,17 @@ import { NavLink } from "react-router-dom";
 import SidePanel from "./SidePanel";
 import ServiceDropdown from "./ServiceDropdown";
 import { Mail, Clock, Search, Menu, X, ChevronDown } from "lucide-react";
+import facebookIcon from "../../assets/social-icons/facebook.svg";
+import twitterIcon from "../../assets/social-icons/twitter.svg";
+import instagramIcon from "../../assets/social-icons/instagram.svg";
+import linkedinIcon from "../../assets/social-icons/linkedin.svg";
+
+const socialIcons = [
+  { label: "facebook Icon", image: facebookIcon },
+  { label: "twitter Icon", image: twitterIcon },
+  { label: "instagram Icon", image: instagramIcon },
+  { label: "linkedin Icon", image: linkedinIcon },
+];
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -94,10 +105,9 @@ export default function Navbar() {
             <span className="h-4 w-px bg-white/20" />
 
             <div className="flex items-center gap-4">
-              <SocialDot label="f" />
-              <SocialDot label="t" />
-              <SocialDot label="ig" />
-              <SocialDot label="in" />
+              {socialIcons.map((icon, idx) => (
+                <SocialDot key={idx} label={icon.label} image={icon.image} />
+              ))}
             </div>
           </div>
         </div>
@@ -278,10 +288,9 @@ export default function Navbar() {
               </div>
 
               <div className="mt-10 flex items-center gap-6">
-                <SocialDot label="f" />
-                <SocialDot label="t" />
-                <SocialDot label="yt" />
-                <SocialDot label="in" />
+                {socialIcons.map((icon, idx) => (
+                <SocialDot key={idx} label={icon.label} image={icon.image} />
+              ))}
               </div>
             </div>
           </aside>
@@ -293,10 +302,14 @@ export default function Navbar() {
   );
 }
 
-function SocialDot({ label }) {
+function SocialDot({ label, image }) {
   return (
-    <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-black/10 text-xs font-semibold text-[#1F2A30]">
-      {label}
-    </span>
+    <div>
+      <img
+        src={image}
+        alt={label}
+        className="h-6 w-6 object-cover bg-white rounded-full"
+      />
+    </div>
   );
 }

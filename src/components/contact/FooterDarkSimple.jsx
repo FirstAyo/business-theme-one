@@ -11,6 +11,11 @@ import {
   ArrowRight,
 } from "lucide-react";
 
+import facebookIcon from "../../assets/social-icons/facebook.svg";
+import twitterIcon from "../../assets/social-icons/twitter.svg";
+import instagramIcon from "../../assets/social-icons/instagram.svg";
+import linkedinIcon from "../../assets/social-icons/linkedin.svg";
+
 export default function FooterDarkSimple() {
   return (
     <footer className="relative overflow-hidden bg-[#1F2A30] text-white">
@@ -43,19 +48,19 @@ export default function FooterDarkSimple() {
             {/* Social icons */}
             <div className="mt-7 flex items-center gap-3">
               <SocialIcon href="#" label="Facebook">
-                <Facebook className="h-4 w-4" />
+                <img src={facebookIcon} className="h-7 w-7" />
               </SocialIcon>
               <SocialIcon href="#" label="Twitter">
-                <Twitter className="h-4 w-4" />
+                <img src={twitterIcon} className="h-7 w-7" />
               </SocialIcon>
               <SocialIcon href="#" label="LinkedIn">
-                <Linkedin className="h-4 w-4" />
+                <img src={linkedinIcon} className="h-7 w-7" />
               </SocialIcon>
               <SocialIcon href="#" label="Instagram">
-                <Instagram className="h-4 w-4" />
+                <img src={instagramIcon} className="h-7 w-7" />
               </SocialIcon>
               <SocialIcon href="#" label="LinkedIn 2">
-                <Linkedin className="h-4 w-4" />
+                <img src={linkedinIcon} className="h-7 w-7" />
               </SocialIcon>
             </div>
           </div>
@@ -148,7 +153,7 @@ function SocialIcon({ href, label, children }) {
     <a
       href={href}
       aria-label={label}
-      className="grid h-10 w-10 place-items-center rounded-md bg-white/10 text-white/90 transition hover:bg-white/15"
+      className="grid h-10 w-10 place-items-center rounded-md bg-white text-white/90 transition hover:bg-white/15"
     >
       {children}
     </a>

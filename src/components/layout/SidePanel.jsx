@@ -1,4 +1,9 @@
 import { useEffect } from "react";
+import facebookIcon from "../../assets/social-icons/facebook.svg";
+import twitterIcon from "../../assets/social-icons/twitter.svg";
+import instagramIcon from "../../assets/social-icons/instagram.svg";
+import linkedinIcon from "../../assets/social-icons/linkedin.svg";
+import { Globe, MailCheck, MapPin, Phone } from "lucide-react";
 
 /**
  * SidePanel (Desktop off-canvas modal)
@@ -6,6 +11,14 @@ import { useEffect } from "react";
  * - Backdrop click + ESC closes
  * - Locks body scroll while open
  */
+
+const socialIcons = [
+  { label: "facebook Icon", image: facebookIcon },
+  { label: "twitter Icon", image: twitterIcon },
+  { label: "instagram Icon", image: instagramIcon },
+  { label: "linkedin Icon", image: linkedinIcon },
+];
+
 export default function SidePanel({ open, onClose }) {
   // Close on ESC
   useEffect(() => {
@@ -85,29 +98,36 @@ export default function SidePanel({ open, onClose }) {
 
           <ul className="mt-5 space-y-4 text-[15px] text-[#5C6B73]">
             <li className="flex items-center gap-3">
-              <IconBubble>📞</IconBubble>
+              <IconBubble>
+                <Phone />
+              </IconBubble>
               <span>+8801234566789</span>
             </li>
             <li className="flex items-center gap-3">
-              <IconBubble>✉️</IconBubble>
+              <IconBubble>
+                <MailCheck />
+              </IconBubble>
               <span>example@gmail.com</span>
             </li>
             <li className="flex items-center gap-3">
-              <IconBubble>🌐</IconBubble>
+              <IconBubble>
+                <Globe />
+              </IconBubble>
               <span>www.webexample.com</span>
             </li>
             <li className="flex items-center gap-3">
-              <IconBubble>📍</IconBubble>
+              <IconBubble>
+                <MapPin />
+              </IconBubble>
               <span>13/A, New Pro State, NYC</span>
             </li>
           </ul>
 
           {/* Socials */}
           <div className="mt-8 flex items-center gap-4">
-            <SocialCircle label="f" />
-            <SocialCircle label="t" />
-            <SocialCircle label="ig" />
-            <SocialCircle label="in" />
+            {socialIcons.map((icon, idx) => (
+              <SocialCircle key={idx} label={icon.label} image={icon.image} />
+            ))}
           </div>
         </div>
       </aside>
@@ -125,10 +145,14 @@ function IconBubble({ children }) {
 }
 
 /** Social circle placeholder */
-function SocialCircle({ label }) {
+function SocialCircle({ label, image }) {
   return (
-    <span className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-[#1F2A30] text-sm font-semibold text-white">
-      {label}
-    </span>
+    <div>
+      <img
+        src={image}
+        alt={label}
+        className="h-12 w-12 object-cover bg-white rounded-full"
+      />
+    </div>
   );
 }
