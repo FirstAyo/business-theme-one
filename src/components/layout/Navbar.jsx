@@ -35,6 +35,12 @@ export default function Navbar() {
     [],
   );
 
+  // ✅ NEW: refs + state to pin ONLY the main navbar after top bar scrolls away
+  const topBarRef = useRef(null);
+  const mainNavRef = useRef(null);
+  const [pinMainNav, setPinMainNav] = useState(false);
+  const [mainNavHeight, setMainNavHeight] = useState(0);
+
   // ESC closes
   useEffect(() => {
     const onKeyDown = (e) => {
@@ -65,13 +71,40 @@ export default function Navbar() {
     if (closeTimerRef.current) window.clearTimeout(closeTimerRef.current);
     closeTimerRef.current = window.setTimeout(() => {
       setServicesOpen(false);
-    }, 140); // small delay = premium + prevents flicker
+    }, 140);
   };
+
+  // ✅ NEW: pin main nav after scrolling past top bar
+  useEffect(() => {
+    const measure = () => {
+      const h = mainNavRef.current?.offsetHeight || 0;
+      setMainNavHeight(h);
+    };
+
+    const onScroll = () => {
+      const topBarH = topBarRef.current?.offsetHeight || 0;
+      setPinMainNav(window.scrollY > topBarH);
+    };
+
+    measure();
+    onScroll();
+
+    window.addEventListener("resize", measure);
+    window.addEventListener("scroll", onScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener("resize", measure);
+      window.removeEventListener("scroll", onScroll);
+    };
+  }, []);
 
   return (
     <header className="w-full">
       {/* Top utility bar (desktop) */}
-      <div className="hidden w-full bg-[#1F2A30] text-white md:block">
+      <div
+        ref={topBarRef}
+        className="hidden w-full bg-[#1F2A30] text-white md:block"
+      >
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3">
           <div className="flex items-center gap-8 text-sm">
             <div className="flex items-center gap-2">
@@ -113,8 +146,17 @@ export default function Navbar() {
         </div>
       </div>
 
+      {/* ✅ Spacer only when main nav is pinned (prevents jump) */}
+      {pinMainNav ? <div style={{ height: mainNavHeight }} /> : null}
+
       {/* Main navbar */}
-      <div className="w-full bg-white">
+      <div
+        ref={mainNavRef}
+        className={[
+          "w-full bg-white",
+          pinMainNav ? "fixed top-0 left-0 right-0 z-50" : "",
+        ].join(" ")}
+      >
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
           {/* Logo */}
           <NavLink to="/" className="flex items-center gap-3">
@@ -155,7 +197,6 @@ export default function Navbar() {
                       <ChevronDown className="h-4 w-4 opacity-70" />
                     </NavLink>
 
-                    {/* Dropdown stays open when hovered */}
                     <ServiceDropdown
                       open={servicesOpen}
                       onMouseEnter={openServices}
@@ -289,8 +330,8 @@ export default function Navbar() {
 
               <div className="mt-10 flex items-center gap-6">
                 {socialIcons.map((icon, idx) => (
-                <SocialDot key={idx} label={icon.label} image={icon.image} />
-              ))}
+                  <SocialDot key={idx} label={icon.label} image={icon.image} />
+                ))}
               </div>
             </div>
           </aside>

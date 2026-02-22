@@ -1,3 +1,4 @@
+import { Check, PhoneCall } from "lucide-react";
 import hero1 from "../../assets/images/hero1.png";
 import hero2 from "../../assets/images/hero2.png";
 
@@ -68,7 +69,7 @@ export default function AboutSection() {
             {/* Call box */}
             <div className="flex items-center gap-4">
               <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#1F2A30] text-white">
-                {/* Icon placeholder */}☎
+                <PhoneCall />
               </div>
               <div>
                 <p className="text-sm text-[#5C6B73]">Call us anytime</p>
@@ -94,7 +95,7 @@ function CheckItem({ text }) {
   return (
     <li className="flex items-center gap-3 text-[15px] text-[#1F2A30]">
       <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-[#1F2A30] text-[11px] text-white">
-        ✓
+        <Check size={15} color="#ffffff" />
       </span>
       <span className="font-semibold">{text}</span>
     </li>

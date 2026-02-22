@@ -1,6 +1,7 @@
 import image1 from "../../assets/images/cover.jpg";
 import image2 from "../../assets/images/hero2.png";
 import icon from "../../assets/icons/developing.png";
+import { Play } from "lucide-react";
 
 /**
  * BusinessGlobalSection
@@ -12,14 +13,12 @@ export default function BusinessGlobalSection() {
   return (
     <section className="bg-white py-16 md:py-24">
       <div className="relative mx-auto flex flex-col lg:flex-row max-w-7xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:gap-16 lg:px-8 justify-between">
-         {/* Watermark */}
-          <div className="pointer-events-none absolute -top-20 left-0 hidden select-none text-[125px] font-extrabold tracking-wide text-black/7 lg:block">
-            Business Goal
-          </div>
+        {/* Watermark */}
+        <div className="pointer-events-none absolute -top-20 left-0 hidden select-none text-[125px] font-extrabold tracking-wide text-black/7 lg:block">
+          Business Goal
+        </div>
         {/* LEFT */}
         <div className="relative">
-         
-
           <p className="text-sm font-semibold tracking-[0.22em] text-[#1F2A30]">
             JUST A CONSULTANCY
           </p>
@@ -56,7 +55,7 @@ export default function BusinessGlobalSection() {
               aria-label="Play video"
               className="inline-flex h-14 w-14 items-center justify-center rounded-full bg-black/5 text-[#1F2A30] hover:bg-black/10"
             >
-              ▶
+              <Play size={30} color="#000000" />
             </button>
           </div>
         </div>

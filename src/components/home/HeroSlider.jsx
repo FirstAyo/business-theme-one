@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import hero1 from "../../assets/images/hero1.png";
 import hero2 from "../../assets/images/hero2.png";
 import hero3 from "../../assets/images/hero3.png";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 /**
  * HeroSlider
@@ -104,7 +105,7 @@ export default function HeroSlider() {
           onClick={prev}
           className="absolute left-6 top-1/2 z-20 hidden h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-white text-[#1F2A30] shadow md:flex"
         >
-          ‹
+          <ChevronLeft />
         </button>
 
         <button
@@ -113,7 +114,7 @@ export default function HeroSlider() {
           onClick={next}
           className="absolute right-6 top-1/2 z-20 hidden h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-white text-[#1F2A30] shadow md:flex"
         >
-          ›
+          <ChevronRight />
         </button>
 
         {/* Mobile controls */}

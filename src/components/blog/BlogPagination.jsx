@@ -1,3 +1,5 @@
+import { ChevronsRight } from "lucide-react";
+
 export default function BlogPagination() {
   return (
     <div className="mt-10 flex items-center gap-2">
@@ -5,7 +7,7 @@ export default function BlogPagination() {
       <PageBtn>02</PageBtn>
       <PageBtn>03</PageBtn>
       <PageBtn>04</PageBtn>
-      <PageBtn>&raquo;</PageBtn>
+      <PageBtn><ChevronsRight /></PageBtn>
     </div>
   );
 }
