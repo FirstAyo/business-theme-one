@@ -119,7 +119,7 @@ export default function SidePanel({ open, onClose }) {
               <IconBubble>
                 <MapPin />
               </IconBubble>
-              <span>13/A, New Pro State, NYC</span>
+              <span>100 W 49th Ave, Vancouver, BC</span>
             </li>
           </ul>
 

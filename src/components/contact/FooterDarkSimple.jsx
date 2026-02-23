@@ -118,8 +118,8 @@ export default function FooterDarkSimple() {
                 title="Our Location"
                 value={
                   <>
-                    XYZ Hilton Street, 125 Town <br />
-                    United State
+                    100 W 49th Ave, Vancouver, BC <br />
+                    Canada
                   </>
                 }
               />

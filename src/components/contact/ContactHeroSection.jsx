@@ -60,7 +60,7 @@ export default function ContactHeroSection() {
                 <ContactItem
                   icon={<MapPin className="h-5 w-5" />}
                   label="Our Location"
-                  value="125 Town, United State"
+                  value="100 W 49th Ave, Vancouver, BC, Canada"
                 />
               </div>
             </div>
