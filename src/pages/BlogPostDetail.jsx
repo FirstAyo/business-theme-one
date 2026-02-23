@@ -1,30 +1,34 @@
-import { useParams, Link } from "react-router-dom";
+import BlogDetailHero from "../components/BlogDetail/BlogDetailHero";
+import BlogDetailArticle from "../components/BlogDetail/BlogDetailArticle";
+
+import heroImg from "../assets/images/hero3.png"; // replace with your banner image
+import NewsletterCta from "../components/contact/NewsletterCta";
+import FooterDarkSimple from "../components/contact/FooterDarkSimple";
 
 export default function BlogPostDetail() {
-  const { slug } = useParams();
+  const demoPost = {
+    title: "Profitable business makes your profit",
+    author: "David Smith",
+    date: "15 Jan, 2023",
+    category: "Business Solution",
+  };
 
   return (
     <main className="bg-white">
-      <div className="mx-auto max-w-4xl px-4 py-14 sm:px-6 lg:px-8">
-        <Link to="/blog" className="text-sm font-semibold text-[#1F2A30]">
-          ← Back to Blog
-        </Link>
+      {/* Hero background */}
+      <BlogDetailHero image={heroImg} />
 
-        <h1 className="mt-6 text-4xl font-extrabold text-[#1F2A30]">
-          Blog Post Detail (Demo)
-        </h1>
-
-        <p className="mt-3 text-[#1F2A30]/70">
-          Slug: <span className="font-semibold">{slug}</span>
-        </p>
-
-        <div className="mt-10 rounded-2xl border border-black/10 bg-[#F4F6F8] p-8">
-          <p className="text-[#1F2A30]/70">
-            We’ll build the real blog detail layout later. This is just to prove
-            the routing works.
-          </p>
+      {/* Article card that overlaps hero */}
+      <section className="relative">
+        <div className="mx-auto max-w-4xl px-4 sm:px-6">
+          <div className="my-20">
+            <BlogDetailArticle post={demoPost} />
+          </div>
         </div>
-      </div>
+      </section>
+
+      <NewsletterCta />
+      <FooterDarkSimple />
     </main>
   );
 }
