@@ -53,7 +53,7 @@ export default function ServiceDropdown({
       onMouseLeave={onMouseLeave}
       className={[
         // Position & size (centered)
-        "fixed left-1/2 top-34 z-9999 w-[min(1120px,calc(100vw-2rem))] -translate-x-1/2",
+        "fixed left-1/2 top-32 z-9999 w-[min(1120px,calc(100vw-2rem))] -translate-x-1/2",
 
         // Animation + interaction
         "origin-top transition-all duration-200 ease-out",

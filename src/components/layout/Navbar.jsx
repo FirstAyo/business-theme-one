@@ -153,7 +153,7 @@ export default function Navbar() {
       <div
         ref={mainNavRef}
         className={[
-          "w-full bg-white",
+          "w-full bg-white border-b border-gray-400 transition-all",
           pinMainNav ? "fixed top-0 left-0 right-0 z-50" : "",
         ].join(" ")}
       >
