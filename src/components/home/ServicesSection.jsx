@@ -53,7 +53,7 @@ export default function ServicesSection() {
   }, [activeDot]);
 
   return (
-    <section className="bg-white py-16 md:py-24">
+    <section className="bg-white py-16 md:py-24" id="services">
       <div className="px-4">
         {/* Heading */}
         <div className="relative text-center">

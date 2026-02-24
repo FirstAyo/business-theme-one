@@ -6,12 +6,12 @@ import { Link } from "react-router-dom";
  * - Bottom-left white info badge
  * - Uses placeholders for images (replace later)
  */
-export default function ProjectCard({ to, title, category }) {
+export default function ProjectCard({ to, title, category, image }) {
   return (
     <Link to={to} className="group block">
       <div className="relative overflow-hidden rounded-3xl bg-gray-200">
         {/* Image placeholder (swap with <img /> later) */}
-        <div className="h-[260px] w-full sm:h-[300px]" />
+        <img src={image} className="h-[260px] w-full sm:h-[300px] object-cover" />
 
         {/* Info badge */}
         <div className="absolute bottom-6 left-6 rounded-2xl bg-white px-8 py-5 shadow-lg">

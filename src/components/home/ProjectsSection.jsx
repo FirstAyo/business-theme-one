@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import CarouselDots from "../ui/CarouselDots";
 import ProjectCard from "./ProjectCard";
+import image from "../../assets/images/hero1.png";
 
 /**
  * ProjectsSection (Popular Projects)
@@ -16,21 +17,25 @@ export default function ProjectsSection() {
         slug: "business-growth",
         title: "Business Growth",
         category: "Business Strategy",
+        image: image,
       },
       {
         slug: "startup-solution",
         title: "Startup Solution",
         category: "Business Strategy",
+        image: image,
       },
       {
         slug: "market-research",
         title: "Market Research",
         category: "Business Strategy",
+        image: image,
       },
       {
         slug: "product-launch",
         title: "Product Launch",
         category: "Business Strategy",
+        image: image,
       },
     ],
     [],
@@ -59,7 +64,7 @@ export default function ProjectsSection() {
         <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
           <div className="relative">
             {/* Watermark */}
-            <div className="pointer-events-none absolute -top-10 left-0 hidden select-none text-[110px] font-extrabold tracking-tight text-black/[0.03] lg:block">
+            <div className="pointer-events-none absolute -top-20 left-0 hidden select-none text-[110px] font-extrabold tracking-wider text-black/7 lg:block">
               Projects
             </div>
 
@@ -108,6 +113,7 @@ export default function ProjectsSection() {
                     to={`/projects/${p.slug}`}
                     title={p.title}
                     category={p.category}
+                    image={p.image}
                   />
                 </div>
               ))}
