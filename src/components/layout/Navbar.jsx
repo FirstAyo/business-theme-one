@@ -26,11 +26,11 @@ export default function Navbar() {
   const navItems = useMemo(
     () => [
       { label: "Home", to: "/", hasDropdown: false },
-      { label: "Pages", to: "/pages", hasDropdown: false },
       { label: "Service", to: "/services", hasDropdown: true },
       { label: "Project", to: "/projects", hasDropdown: false },
       { label: "Blog", to: "/blog", hasDropdown: false },
       { label: "Contact", to: "/contact", hasDropdown: false },
+      { label: "About", to: "/about", hasDropdown: false },
     ],
     [],
   );
