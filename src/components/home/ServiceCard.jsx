@@ -1,7 +1,4 @@
 import icon1 from "../../assets/icons/developing.png";
-import icon2 from "../../assets/icons/growth.png";
-import icon3 from "../../assets/icons/planning.png";
-import icon4 from "../../assets/icons/startegy.png";
 
 /**
  * ServiceCard
