@@ -1,4 +1,4 @@
-import { act, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import image1 from "../../assets/images/hero2.png";
 
 /**

@@ -1,25 +1,20 @@
-import { Routes, Route } from "react-router-dom";
-import MainLayout from "./components/layout/MainLayout";
-import Home from "./pages/Home";
-import Contact from "./pages/Contact";
-import Projects from "./pages/Projects";
-import ProjectDetail from "./pages/ProjectDetail";
-import Blog from "./pages/Blog";
-import BlogPostDetail from "./pages/BlogPostDetail";
-import ServiceDetailPage from "./pages/ServiceDetailPage";
+import { Route, Routes } from 'react-router-dom';
+import SiteLayout from './components/SiteLayout';
+import { Home, About, Services, ServiceDetail, Projects, ProjectDetail, Journal, Article, Contact, Legal, NotFound } from './pages/SitePages';
 
 export default function App() {
-  return (
-    <Routes>
-      <Route element={<MainLayout />}>
-        <Route path="/" element={<Home />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/projects" element={<Projects />} />
-        <Route path="/projects/:slug" element={<ProjectDetail />} />
-        <Route path="/blog" element={<Blog />} />
-        <Route path="/blog/:slug" element={<BlogPostDetail />} />
-        <Route path="/services/:slug" element={<ServiceDetailPage />} />
-      </Route>
-    </Routes>
-  );
+  return <Routes><Route element={<SiteLayout />}>
+    <Route index element={<Home />} />
+    <Route path="about" element={<About />} />
+    <Route path="services" element={<Services />} />
+    <Route path="services/:slug" element={<ServiceDetail />} />
+    <Route path="projects" element={<Projects />} />
+    <Route path="projects/:slug" element={<ProjectDetail />} />
+    <Route path="blog" element={<Journal />} />
+    <Route path="blog/:slug" element={<Article />} />
+    <Route path="contact" element={<Contact />} />
+    <Route path="privacy" element={<Legal kind="privacy" />} />
+    <Route path="terms" element={<Legal kind="terms" />} />
+    <Route path="*" element={<NotFound />} />
+  </Route></Routes>;
 }

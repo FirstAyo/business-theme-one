@@ -1,0 +1,3 @@
+# Apache: serve prerendered directory indexes; send unknown paths to a real 404.
+DirectoryIndex index.html
+ErrorDocument 404 /404.html

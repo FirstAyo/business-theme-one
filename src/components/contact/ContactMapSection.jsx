@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import logo1 from "../../assets/clients/1.webp";
 import logo2 from "../../assets/clients/2.webp";
 import logo3 from "../../assets/clients/3.webp";
